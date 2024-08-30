@@ -1,8 +1,16 @@
 <?php
 
+include __DIR__ . '/src/Framework/Database.php';
 
-$dirver = "mysql";
-$config = http_build_query(data: ['host' => 'localhost', 'port' => 3306, 'dbname' => 'phpiggy'], arg_separator: ':');
+use Framework\Database;
 
-$dsn = "{$dirver}:{$config}";
-echo $dsn;
+$db = new Database('mysql', [
+    'host' => 'localhost',
+    'port' => 3306,
+    'dbname' => 'phpiggy'
+], 'root', '');
+
+$query = 'SELECT * FROM products';
+
+$stmt = $db->connection->query($query);
+var_dump($stmt->fetchAll());
