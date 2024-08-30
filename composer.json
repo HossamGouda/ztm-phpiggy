@@ -19,5 +19,8 @@
       "src/App/config/Middleware.php"
     ]
   },
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "phpiggy": "php cli.php"
+  }
 }
