@@ -8,7 +8,7 @@ use PDO, PDOException;
 
 class Database
 {
-    public PDO $connection;
+    private PDO $connection;
 
     public function __construct(
         string $driver,
