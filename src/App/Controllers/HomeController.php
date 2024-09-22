@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use Framework\TemplateEngine;
-use App\Config\Paths;
 use App\Services\TransactionService;
 
 class HomeController
@@ -27,6 +26,7 @@ class HomeController
       $length,
       $offset
     );
+
     $lastPage = ceil($count / $length);
     $pages = $lastPage ? range(1, $lastPage) : [];
 
@@ -37,6 +37,7 @@ class HomeController
       ]),
       $pages
     );
+
     echo $this->view->render("index.php", [
       'transactions' => $transactions,
       'currentPage' => $page,
